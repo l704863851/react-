@@ -1,21 +1,32 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { Portal } from 'react-portal';
 
 class App extends React.Component {
-  com
   render() {
-    const { triggerClass, popoverClass, content, isOpen, onOpenChanged, children } = this.props;
+    const { triggerClass = "", popoverClass = "", content, isOpen, onOpenChanged, children } = this.props;
     return (
       <div>
         <div className={triggerClass} onClick={() => onOpenChanged(!isOpen)}>{children}</div>
-        {isOpen && <div className={popoverClass}>
-          {content}
-        </div>}
+        {isOpen && <Portal>
+          <div className={popoverClass}>
+            {content}
+          </div>
+        </Portal>}
         {
           isOpen && <div style={inlineStyles.bg} onClick={() => onOpenChanged(!isOpen)} />
         }
       </div>
     )
   }
+}
+
+App.propTypes = {
+  triggerClass: PropTypes.string,
+  popoverClass: PropTypes.string,
+  content: PropTypes.node.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  onOpenChanged: PropTypes.func.isRequired,
 }
 
 export default App
