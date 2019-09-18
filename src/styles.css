@@ -1,0 +1,16 @@
+.triggerClass {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  border: 1px solid lightblue;
+  cursor: pointer;
+}
+
+.popoverClass {
+  position: absolute;
+  top: 40px;
+  border: 1px solid lightskyblue;
+  z-index: 11;
+}
