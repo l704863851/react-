@@ -24,7 +24,7 @@ class App extends React.Component {
 App.propTypes = {
   triggerClass: PropTypes.string,
   popoverClass: PropTypes.string,
-  content: PropTypes.node.isRequired,
+  content: PropTypes.element.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onOpenChanged: PropTypes.func.isRequired,
 }
